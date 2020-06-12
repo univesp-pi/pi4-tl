@@ -1,10 +1,12 @@
 # PROJETO INTEGRADOR 4
 
+## UNIVERSIDADE VIRTUAL DO ESTADO DE SÃO PAULO
+
 ## Gestão Pública e Novas Tecnologias Aplicadas no Controle de Tráfego
 
 ### Integrantes
 
-- UNIVERSIDADE VIRTUAL DO ESTADO DE SÃO PAULO
+
 - DANIEL DE SOUZA BASTOS
 - DANIEL SCODELERRAIMUNDO
 - HUGO PERES DE FREITAS
@@ -17,4 +19,5 @@
 ### Referências
 
 [https://github.com/hunglc007/tensorflow-yolov4-tflite]
-https://github.com/AlexeyAB/darknet
+[https://github.com/AlexeyAB/darknet]
+
