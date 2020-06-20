@@ -16,15 +16,12 @@
 - MARCELO GARCIA
 - NELSON VOLPIANO NETO
 
-### TODO 
+### DOWNLOAD DEPENDENCIES
 
-fazer download do modelo YoloV4 no link ->
-converter o modelo para tflite ->
-iniciando o programa ->
-
+### RUN
 
 ### Referências
 
-[https://github.com/hunglc007/tensorflow-yolov4-tflite]
-[https://github.com/AlexeyAB/darknet]
+- TFLITE [https://github.com/hunglc007/tensorflow-yolov4-tflite]
+- DarkNet [https://github.com/AlexeyAB/darknet]
 
