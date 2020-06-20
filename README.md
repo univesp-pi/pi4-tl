@@ -6,7 +6,6 @@
 
 ### Integrantes
 
-
 - DANIEL DE SOUZA BASTOS
 - DANIEL SCODELERRAIMUNDO
 - HUGO PERES DE FREITAS
@@ -14,7 +13,15 @@
 - JOSÉ CARLOS RAGO
 - LUCIANE DOS SANTOS DO NASCIMENTO
 - MARCELO DE SOUZA MEDEIROS
-- MARCELO GARCIANELSON VOLPIANO NETO
+- MARCELO GARCIA
+- NELSON VOLPIANO NETO
+
+### TODO 
+
+fazer download do modelo YoloV4 no link ->
+converter o modelo para tflite ->
+iniciando o programa ->
+
 
 ### Referências
 
