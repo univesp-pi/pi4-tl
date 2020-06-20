@@ -1,10 +1,42 @@
 import tensorflow as tf
 import numpy as np
 import cv2 as cv
+from time import sleep
+from threading import Thread, Event
+
+raspberry = False
+
+traffic_light = {
+    'red':    { 'pin': 0, 'status': 0 },
+    'yellow': { 'pin': 0, 'status': 0 },
+    'green':  { 'pin': 0, 'status': 0 }
+}
+
+if raspberry:
+
+    import RPi.GPIO as GPIO    
+
+    GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
+    GPIO.setup(traffic_light['red']['pin'], GPIO.OUT)
+    GPIO.setup(traffic_light['yellow']['pin'], GPIO.OUT)
+    GPIO.setup(traffic_light['green']['pin'], GPIO.OUT)
+
+thread_started = False
 
 def load_labels(path):
     with open(path, 'r') as f:
         return [line.strip() for line in f.readlines()]
+
+def change_signal_light(color):
+    global thread_started
+    thread_started = True
+    print('Iniciando troca de cor para: ' + color)
+    sleep(5)
+    GPIO.output(GPIO.output(traffic_light['red']['pin'], GPIO.LOW))
+    GPIO.output(GPIO.output(traffic_light['green']['pin'], GPIO.HIGH))
+    print('Troca de cor do semaforo concluida com sucesso')
+    thread_started = False
+        
 
 cap = cv.VideoCapture(0)
 
@@ -31,8 +63,11 @@ if labels[0] == '???':
 threshold = 0.4
 imW, imH = 640, 480
 desired_labels = ['car', 'truck', 'motorcycle', 'bike']
-vehicles_offset = 5
-people_offset = 5
+vehicles_offset = 4
+people_offset = 4
+
+threads = []
+
 
 while True:
 
@@ -89,11 +124,10 @@ while True:
         cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 200, 100), 2) # Draw label text
 
     if len(objects) >= vehicles_offset:
-        # Mudar o semaforo de pedestres para vermelho piscante
-        # Apos 3 segundos mudar o semaforo de carros para verde
-        pass
-
-       
+        if not thread_started:
+            x = Thread(target=change_signal_light, args=('red',))
+            x.start()
+        # Apos 3 segundos mudar o semaforo de carros para verde        
 
     cv.imshow('Main', frame)
     
