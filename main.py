@@ -7,9 +7,9 @@ from threading import Thread, Event
 raspberry = False
 
 traffic_light = {
-    'red':    { 'pin': 0, 'status': 0 },
-    'yellow': { 'pin': 0, 'status': 0 },
-    'green':  { 'pin': 0, 'status': 0 }
+    'red':    { 'pin': 17, 'status': 0 },
+    'yellow': { 'pin': 27, 'status': 0 },
+    'green':  { 'pin': 22, 'status': 0 }
 }
 
 if raspberry:
