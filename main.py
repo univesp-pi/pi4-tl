@@ -29,11 +29,13 @@ def load_labels(path):
 
 def change_signal_light(color):
     global thread_started
+    global raspberry
     thread_started = True
     print('Iniciando troca de cor para: ' + color)
     sleep(5)
-    GPIO.output(GPIO.output(traffic_light['red']['pin'], GPIO.LOW))
-    GPIO.output(GPIO.output(traffic_light['green']['pin'], GPIO.HIGH))
+    if raspberry:
+        GPIO.output(GPIO.output(traffic_light['red']['pin'], GPIO.LOW))
+        GPIO.output(GPIO.output(traffic_light['green']['pin'], GPIO.HIGH))
     print('Troca de cor do semaforo concluida com sucesso')
     thread_started = False
         
